@@ -1,20 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Descubra o que tem atrás!</title>
+    <title>:3</title>
     <style>
         body {
             text-align: center;
             font-family: Arial, sans-serif;
+            background-color: #f3f3f3;
             margin: 0;
             padding: 0;
-            background: url('https://s1.1zoom.me/big3/316/Cats_Gray_background_Kittens_Glance_Snout_559371_3000x2000.jpg') no-repeat center center fixed;
+            background: url('https://media.discordapp.net/attachments/885668867907661876/1133230458914734163/codes.gif?width=431&height=320') no-repeat center center fixed;
             background-size: cover;
         }
 
         h1 {
             margin-top: 50px;
-            color: #fff;
+            color: #333;
+            font-size: 24px;
+            cursor: pointer;
+            transition: transform 0.3s;
+            text-shadow: 2px 2px 4px #000; /* Sombreamento preto no texto */
+        }
+
+        h1:hover {
+            transform: scale(1.1);
         }
 
         #container {
@@ -46,25 +55,43 @@
         #simButton {
             background-color: #4CAF50;
         }
+
+        #videoContainer {
+            display: none;
+        }
+
+        video {
+            width: 80%;
+            max-width: 800px;
+            margin: 20px auto;
+        }
     </style>
 </head>
 <body>
     <div id="container">
-        <h1>Quer saber o que tem atrás?</h1>
+        <h1 onclick="trocarLugar()">Isso é um vírus! Clique em Não para fechar a página.</h1>
         <div id="buttons">
             <button id="naoButton">Não</button>
-            <button id="simButton">Sim</button>
+            <button id="simButton" onclick="exibirVideo()">Sim</button>
         </div>
+    </div>
+
+    <div id="videoContainer">
+        <video id="videoPlayer" controls autoplay>
+            <source src="https://cdn.discordapp.com/attachments/885668867907661876/1133229710348927116/Rick_Astley_-_Never_Gonna_Give_You_Up_Official_Music_Video.mp4">
+            Seu navegador não suporta a tag de vídeo.
+        </video>
     </div>
 
     <script>
         const naoButton = document.getElementById('naoButton');
+        const videoContainer = document.getElementById('videoContainer');
 
         naoButton.addEventListener('click', () => {
-            moveButton();
+            trocarLugar();
         });
 
-        function moveButton() {
+        function trocarLugar() {
             const screenWidth = window.innerWidth;
             const screenHeight = window.innerHeight;
             const newLeft = Math.random() * (screenWidth - naoButton.clientWidth);
@@ -74,11 +101,20 @@
             naoButton.style.top = `${newTop}px`;
         }
 
-        const simButton = document.getElementById('simButton');
+        function exibirVideo() {
+            const container = document.getElementById('container');
+            const videoContainer = document.getElementById('videoContainer');
 
-        simButton.addEventListener('click', () => {
-            window.location.href = 'https://youtu.be/xvFZjo5PgG0?si=gM79vOOOINXzNoTL';
-        });
+            container.style.display = 'none';
+            videoContainer.style.display = 'block';
+            videoContainer.innerHTML = `
+                <video id="videoPlayer" controls autoplay>
+                    <source src="https://cdn.discordapp.com/attachments/885668867907661876/1133229710348927116/Rick_Astley_-_Never_Gonna_Give_You_Up_Official_Music_Video.mp4">
+                    Seu navegador não suporta a tag de vídeo.
+                </video>
+            `;
+        }
     </script>
 </body>
 </html>
+

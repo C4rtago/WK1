@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Descubra o que tem atrás!</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://s1.1zoom.me/big3/316/Cats_Gray_background_Kittens_Glance_Snout_559371_3000x2000.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        h1 {
+            margin-top: 50px;
+            color: #fff;
+        }
+
+        #container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        #buttons {
+            margin-top: 30px;
+        }
+
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            color: #fff;
+        }
+
+        #naoButton {
+            background-color: #FF5252;
+        }
+
+        #simButton {
+            background-color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Quer saber o que tem atrás?</h1>
+        <div id="buttons">
+            <button id="naoButton">Não</button>
+            <button id="simButton">Sim</button>
+        </div>
+    </div>
+
+    <script>
+        const naoButton = document.getElementById('naoButton');
+
+        naoButton.addEventListener('click', () => {
+            moveButton();
+        });
+
+        function moveButton() {
+            const screenWidth = window.innerWidth;
+            const screenHeight = window.innerHeight;
+            const newLeft = Math.random() * (screenWidth - naoButton.clientWidth);
+            const newTop = Math.random() * (screenHeight - naoButton.clientHeight);
+            naoButton.style.position = 'absolute';
+            naoButton.style.left = `${newLeft}px`;
+            naoButton.style.top = `${newTop}px`;
+        }
+
+        const simButton = document.getElementById('simButton');
+
+        simButton.addEventListener('click', () => {
+            window.location.href = 'https://youtu.be/xvFZjo5PgG0?si=gM79vOOOINXzNoTL';
+        });
+    </script>
+</body>
+</html>
